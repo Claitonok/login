@@ -30,7 +30,7 @@ public class UsuarioController {
 
     /**
      * 
-     * @return RETORNA TODOS OS DADOS DO BANCO DE DADOS
+     * @return RETORNA O STATUS 200 OK SE TIVER CERTO SE NÃO 204 NO CONTENT
      */
     @Operation(summary = "Nesse endpoint retorna todos os dados", description = "Retorna todos os dados do banco de dados")
     @GetMapping
@@ -47,7 +47,7 @@ public class UsuarioController {
     /**
      * ESSE METODO ESPERA PASSAR O {id}:
      * @param id 
-     * @return RETORNA OS DADOS DO BANCO DE DADOS PELO {id}
+     * @return RETORNA O STATUS 200 OK SE TIVER CERTO SE NÃO 204 NO CONTENT
      */
     @Operation(summary = "Nesse endpoint retorna todos os dados pelo Id do usuario!", description = "Retorna os dados do banco de dados pelo - {id}")
     @GetMapping("/{id}")
@@ -72,7 +72,7 @@ public class UsuarioController {
      * ESSE METODO SERVE PARA CADASTRAR POR ISSO DO @PostMapping
      * LEMBRAR DE PASSAR POR PARAMETRO NO METODO O @RequestBody NOME_DA_CLASSE | APELIDO DA CLASSE!!
      * @param usuario
-     * @return
+     * @return RETORNA O STATUS 201 CREATED SE TIVER CERTO
      */
     @PostMapping
     public ResponseEntity<UsuarioLogin> adicionaUsers(@RequestBody UsuarioLogin usuario) {
@@ -82,7 +82,7 @@ public class UsuarioController {
     /**
      * ESSE METODO ELE SERVE PARA EXCLUIR DO BANCO DE DADOS PELO id
      * @param id ESPERA PASSAR O {id} PELA URI
-     * @return RETORNA O STATUS DE EXCLUSÃO
+     * @return RETORNA O STATUS 200 OK SE TIVER CERTO SE NÃO 204 NO CONTENT
      */
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<UsuarioLogin> deletaUsers(@PathVariable Integer id){
@@ -106,7 +106,7 @@ public class UsuarioController {
      * ESSE METOOO ELE ATUALIZA PELO {id} PASSADO PELA URI
      * @param usuario
      * @param id
-     * @return
+     * @return RETORNA O STATUS ATUALIZADO 200 OK SE TIVER CERTO SE NÃO 204 NO CONTENT
      */
     @PutMapping("/update/{id}")
     public ResponseEntity<UsuarioLogin> atualizar(@RequestBody UsuarioLogin usuario, @PathVariable Integer id){
@@ -127,10 +127,10 @@ public class UsuarioController {
 
 
     /**
-     * ESSE METODO SERVE PARA CADASTRAR POR ISSO DO @PostMapping
+     * ESSE METODO SERVE PARA FAZER O LOGIN DO USUARIO
      * LEMBRAR DE PASSAR POR PARAMETRO NO METODO O @RequestBody NOME_DA_CLASSE | APELIDO DA CLASSE!!
      * @param usuario
-     * @return
+     * @return STATUS 200 OK SE TIVER CERTO SE NÃO 204 NO CONTENT
      */
     @Operation(summary = "Nesse endpoint faz o login do usuario", description = "Faz o login do usuario passando email e senha")
     @GetMapping("/login/{email}/{password}")
